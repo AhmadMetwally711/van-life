@@ -457,12 +457,6 @@ app.delete("/api/favorites/:vanId", async (req, res) => {
   }
 });
 
-const PORT = 5000;
-
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
-
 app.delete("/api/rentals/:id", async (req, res) => {
   try {
     if (!req.session.userId) {
@@ -494,13 +488,29 @@ app.delete("/api/rentals/:id", async (req, res) => {
   }
 });
 
-router.post("/logout", (req, res) => {
+app.post("/api/auth/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) {
-      return res.status(500).json({ message: "Logout failed" });
+      console.error(err);
+      return res.status(500).json({
+        message: "Logout failed",
+      });
     }
 
-    res.clearCookie("connect.sid");
-    res.json({ message: "Logged out successfully" });
+    res.clearCookie("connect.sid", {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+    });
+
+    res.json({
+      message: "Logged out successfully",
+    });
   });
+});
+
+const PORT = 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
