@@ -957,26 +957,3 @@ i[class*="van-type-"] {
     margin-inline: auto;
   }
 }
-@media (max-width: 600px) {
-  .rental-card {
-    flex-direction: column;
-  }
-
-  .rental-card img {
-    width: 100%;
-    height: 220px;
-  }
-
-  .rent-van-info {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .favorite-card {
-    flex-direction: column;
-  }
-
-  .favorite-card img {
-    width: 100%;
-  }
-}
