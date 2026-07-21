@@ -205,7 +205,7 @@ app.post("/api/auth/login", async (req, res) => {
 app.get("/api/auth/me", async (req, res) => {
   try {
     if (!req.session.userId) {
-      return res.json({
+      return res.status(401).json({
         isLoggedIn: false,
       });
     }
@@ -216,7 +216,7 @@ app.get("/api/auth/me", async (req, res) => {
     );
 
     if (result.rows.length === 0) {
-      return res.json({
+      return res.status(401).json({
         isLoggedIn: false,
       });
     }
@@ -227,6 +227,7 @@ app.get("/api/auth/me", async (req, res) => {
     });
   } catch (error) {
     console.error(error);
+
     res.status(500).json({
       message: "Server Error",
     });
