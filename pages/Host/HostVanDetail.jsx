@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, Link, NavLink, Outlet } from "react-router-dom";
+import { API_URL } from "../../api";
 
 export default function HostVanDetail() {
   const { id } = useParams();
@@ -12,7 +13,7 @@ export default function HostVanDetail() {
   };
 
   React.useEffect(() => {
-    fetch(`http://localhost:5000/api/host/vans/${id}`, {
+    fetch(`${API_URL}/api/host/vans/${id}`, {
       credentials: "include",
     })
       .then((res) => res.json())

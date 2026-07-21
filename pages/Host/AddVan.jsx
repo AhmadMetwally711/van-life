@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../../api";
 
 export default function AddVan() {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ export default function AddVan() {
       return;
     }
 
-    const res = await fetch("http://localhost:5000/api/host/vans", {
+    const res = await fetch(`${API_URL}/api/host/vans`, {
       method: "POST",
       credentials: "include",
       headers: {

@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { API_URL } from "../api";
 
 export default function MyFavorites() {
   const [favorites, setFavorites] = React.useState([]);
 
   async function loadFavorites() {
-    const res = await fetch("http://localhost:5000/api/favorites", {
+    const res = await fetch(`${API_URL}/api/favorites`, {
       credentials: "include",
     });
 
@@ -18,7 +19,7 @@ export default function MyFavorites() {
   }, []);
 
   async function removeFavorite(vanId) {
-    await fetch(`http://localhost:5000/api/favorites/${vanId}`, {
+    await fetch(`${API_URL}/api/vans/${vanId}/favorites`, {
       method: "DELETE",
       credentials: "include",
     });

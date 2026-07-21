@@ -1,18 +1,14 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaRegCircleUser } from "react-icons/fa6";
-
+import { getCurrentUser } from "../api";
 export default function Header() {
   const [user, setUser] = React.useState(null);
 
   React.useEffect(() => {
-    async function getCurrentUser() {
+    async function fetchUser() {
       try {
-        const res = await fetch("http://localhost:5000/api/auth/me", {
-          credentials: "include",
-        });
-
-        const data = await res.json();
+        const data = await getCurrentUser();
 
         if (data.isLoggedIn) {
           setUser(data.user);
@@ -22,7 +18,7 @@ export default function Header() {
       }
     }
 
-    getCurrentUser();
+    fetchUser();
   }, []);
   const activeStyles = {
     fontWeight: "bold",

@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../api";
 
 export default function Login() {
   const [formData, setFormData] = React.useState({
@@ -24,7 +25,7 @@ export default function Login() {
     setIsSubmitting(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
         credentials: "include",
         headers: {
@@ -34,6 +35,8 @@ export default function Login() {
       });
 
       const data = await res.json();
+      console.log(res.status);
+      console.log(data);
 
       if (!res.ok) {
         alert(data.message);

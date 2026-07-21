@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { getVans } from "../../api";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { API_URL } from "../../api";
 
 export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -12,7 +13,7 @@ export default function Vans() {
   const typeFilter = searchParams.get("type");
 
   async function loadFavorites() {
-    const res = await fetch("http://localhost:5000/api/favorites", {
+    const res = await fetch(`${API_URL}/api/favorites`, {
       credentials: "include",
     });
 
@@ -94,12 +95,12 @@ export default function Vans() {
   async function toggleFavorite(vanId, isFavorite) {
     try {
       if (isFavorite) {
-        await fetch(`http://localhost:5000/api/favorites/${vanId}`, {
+        await fetch(`${API_URL}/api/favorites/${vanId}`, {
           method: "DELETE",
           credentials: "include",
         });
       } else {
-        await fetch("http://localhost:5000/api/favorites", {
+        await fetch(`${API_URL}/api/favorites`, {
           method: "POST",
           credentials: "include",
           headers: {

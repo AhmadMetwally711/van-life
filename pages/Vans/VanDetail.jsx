@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useParams, useLocation } from "react-router-dom";
+import { API_URL } from "../../api";
 
 export default function VanDetail() {
   const params = useParams();
@@ -9,7 +10,7 @@ export default function VanDetail() {
   const [van, setVan] = React.useState(null);
 
   React.useEffect(() => {
-    fetch(`http://localhost:5000/api/vans/${params.id}`)
+    fetch(`${API_URL}/api/vans/${params.id}`)
       .then((res) => res.json())
       .then((data) => setVan(data));
   }, [params.id]);

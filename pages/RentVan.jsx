@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { API_URL } from "../api";
 
 export default function RentVan() {
   const { id } = useParams();
@@ -17,7 +18,7 @@ export default function RentVan() {
 
   async function handleBooking() {
     try {
-      const res = await fetch("http://localhost:5000/api/rentals", {
+      const res = await fetch(`${API_URL}/api/rentals`, {
         method: "POST",
 
         credentials: "include",
@@ -50,7 +51,7 @@ export default function RentVan() {
     }
   }
   React.useEffect(() => {
-    fetch(`http://localhost:5000/api/vans/${id}`)
+    fetch(`${API_URL}/api/vans/${id}`)
       .then((res) => res.json())
       .then((data) => setVan(data));
   }, [id]);

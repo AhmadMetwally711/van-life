@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { API_URL } from "../../api";
 
 export default function HostVans() {
   const [vans, setVans] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("http://localhost:5000/api/host/vans", {
+    fetch(`${API_URL}/api/host/vans`, {
       credentials: "include",
     })
       .then((res) => res.json())

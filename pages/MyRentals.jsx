@@ -1,10 +1,11 @@
 import React from "react";
+import { API_URL } from "../api";
 
 export default function MyRentals() {
   const [rentals, setRentals] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("http://localhost:5000/api/rentals", {
+    fetch(`${API_URL}/api/rentals`, {
       credentials: "include",
     })
       .then((res) => res.json())
@@ -12,7 +13,7 @@ export default function MyRentals() {
   }, []);
 
   async function cancelRental(id) {
-    const res = await fetch(`http://localhost:5000/api/rentals/${id}`, {
+    const res = await fetch(`${API_URL}/api/rentals/${id}`, {
       method: "DELETE",
       credentials: "include",
     });
