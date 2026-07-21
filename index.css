@@ -1017,24 +1017,33 @@ i[class*="van-type-"] {
 @media (max-width: 600px) {
   header {
     height: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
     padding: 20px;
-  }
-
-  header nav {
-    width: 100%;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-
-  header a {
-    padding: 5px 10px;
-    font-size: 14px;
+    flex-direction: row;
+    align-items: center;
   }
 
   header .site-logo {
-    font-size: 22px;
+    font-size: 20px;
+  }
+
+  header nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: nowrap;
+  }
+
+  header a,
+  .logout-btn {
+    padding: 5px 6px;
+    font-size: 13px;
+  }
+
+  .login-link span {
+    display: none;
+  }
+
+  .logout-btn {
+    font-size: 13px;
   }
 }
