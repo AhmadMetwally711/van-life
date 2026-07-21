@@ -9,7 +9,10 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5175",
+    origin: [
+      "http://localhost:5175",
+      "https://van-life-3da27tcin-ahmad-metwally.vercel.app",
+    ],
     credentials: true,
   }),
 );
