@@ -1,8 +1,9 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { getCurrentUser } from "../api";
 export default function Header() {
+  const navigate = useNavigate();
   const [user, setUser] = React.useState(null);
 
   React.useEffect(() => {
