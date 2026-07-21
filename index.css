@@ -551,6 +551,21 @@ i[class*="van-type-"] {
   cursor: not-allowed;
 }
 
+.logout-btn {
+  background: none;
+  border: none;
+  color: #4d4d4d;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 5px 20px;
+  font-size: 16px;
+}
+
+.logout-btn:hover {
+  color: #161616;
+  text-decoration: underline;
+}
+
 .add-van-container {
   max-width: 700px;
   margin: 40px auto;
@@ -997,5 +1012,29 @@ i[class*="van-type-"] {
 
   .van-detail img {
     width: 500px;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  header nav {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  header a {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  header .site-logo {
+    font-size: 22px;
   }
 }

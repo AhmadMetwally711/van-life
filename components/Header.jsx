@@ -20,6 +20,16 @@ export default function Header() {
 
     fetchUser();
   }, []);
+
+  async function logout() {
+    await fetch("https://van-life-i7ca.onrender.com/api/auth/logout", {
+      method: "POST",
+      credentials: "include",
+    });
+
+    setUser(null);
+    navigate("/login");
+  }
   const activeStyles = {
     fontWeight: "bold",
     textDecoration: "underline",
@@ -64,10 +74,16 @@ export default function Header() {
           My Rentals
         </NavLink>
         {user ? (
-          <NavLink to="/host" className="login-link">
-            <FaRegCircleUser />
-            <span>{user.name}</span>
-          </NavLink>
+          <>
+            <NavLink to="/host" className="login-link">
+              <FaRegCircleUser />
+              <span>{user.name}</span>
+            </NavLink>
+
+            <button className="logout-btn" onClick={logout}>
+              Logout
+            </button>
+          </>
         ) : (
           <NavLink to="/login" className="login-link">
             <FaRegCircleUser />
