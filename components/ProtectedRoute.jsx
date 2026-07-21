@@ -26,4 +26,13 @@ export default function ProtectedRoute({ children }) {
 
     checkUser();
   }, []);
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
+
+  if (!isLoggedIn) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
 }
