@@ -986,8 +986,9 @@ i[class*="van-type-"] {
   }
 
   .van-detail {
-    flex-direction: row;
-    gap: 50px;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
   }
 
   .van-detail img {
