@@ -13,7 +13,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5175",
-      "https://van-life-be701g65n-ahmad-metwally.vercel.app/",
+      "https://van-life-lrc2sok27-ahmad-metwally.vercel.app/",
     ],
     credentials: true,
   }),
