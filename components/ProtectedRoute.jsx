@@ -13,9 +13,12 @@ export default function ProtectedRoute({ children }) {
           credentials: "include",
         });
 
-        setIsLoggedIn(res.ok);
+        const data = await res.json();
+
+        setIsLoggedIn(data.isLoggedIn);
       } catch (err) {
         console.error(err);
+        setIsLoggedIn(false);
       } finally {
         setLoading(false);
       }
@@ -23,14 +26,4 @@ export default function ProtectedRoute({ children }) {
 
     checkUser();
   }, []);
-
-  if (loading) {
-    return <h2>Loading...</h2>;
-  }
-
-  if (!isLoggedIn) {
-    return <Navigate to="/login" replace />;
-  }
-
-  return children;
 }
