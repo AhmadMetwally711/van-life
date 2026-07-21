@@ -988,7 +988,6 @@ i[class*="van-type-"] {
   .van-detail {
     flex-direction: column;
     gap: 30px;
-    align-items: center;
   }
 
   .van-detail img {
