@@ -140,7 +140,7 @@ Van-Life
 ## Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/van-life.git
+git clone https://github.com/AhmadMetwally711/van-life.git
 ```
 
 ---
@@ -304,7 +304,7 @@ Through building this project, I practiced:
 Ahmad Metwally
 
 GitHub:
-https://github.com/yourusername
+https://github.com/AhmadMetwally711
 
 LinkedIn:
 https://linkedin.com/in/yourprofile
