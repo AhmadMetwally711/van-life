@@ -9,7 +9,12 @@ body {
   background-color: #fff7ed;
   font-family: "Inter", sans-serif;
 }
-
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
 a {
   text-decoration: unset;
   color: unset;
