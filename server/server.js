@@ -11,10 +11,15 @@ app.set("trust proxy", 1);
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:5175",
-      "https://van-life-lrc2sok27-ahmad-metwally.vercel.app/",
-    ],
+    origin: (origin, callback) => {
+      const allowed = !origin || origin.endsWith(".vercel.app");
+
+      if (allowed) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   }),
 );
