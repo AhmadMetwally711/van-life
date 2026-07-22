@@ -1052,3 +1052,124 @@ i[class*="van-type-"] {
     font-size: 12px;
   }
 }
+.income-page {
+  padding: 30px;
+}
+
+.income-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.income-card h2 {
+  color: #4d4d4d;
+}
+
+.income-card p {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.income-details {
+  margin-top: 30px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.payment {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+.reviews-page {
+  padding: 30px;
+}
+
+.reviews-summary {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.rating {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.reviews-list {
+  margin-top: 30px;
+}
+
+.review-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.review-card h3 {
+  margin-top: 0;
+}
+
+.review-card span {
+  font-size: 20px;
+}
+/* =====================
+   HOST DASHBOARD
+===================== */
+
+.dashboard {
+  padding: 40px 26px;
+  color: #161616;
+}
+
+.dashboard h1 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.dashboard > p {
+  color: #4d4d4d;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.dashboard-card {
+  margin-top: 35px;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  max-width: 700px;
+}
+
+.dashboard-card h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+}
+
+.dashboard-card p {
+  color: #4d4d4d;
+  line-height: 1.6;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .dashboard {
+    padding: 50px;
+  }
+
+  .dashboard h1 {
+    font-size: 3rem;
+  }
+
+  .dashboard-card {
+    padding: 40px;
+  }
+}
