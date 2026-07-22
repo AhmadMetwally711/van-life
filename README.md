@@ -8,9 +8,38 @@ Built with React, Express.js, and PostgreSQL.
 
 ## 🌐 Live Demo
 
-Coming soon...
+Frontend:
+https://van-life-i7w283v15-ahmad-metwally.vercel.app/
 
----
+Backend:
+https://van-life-i7ca.onrender.com/
+
+
+# 🔑 Demo Account
+
+Use the following account to explore the host features of the application:
+
+### Host Account
+
+Email:
+```
+ahmed@test.com
+```
+
+Password:
+```
+123456
+```
+
+This account includes sample vans so you can test:
+
+- Host Dashboard
+- View Host Vans
+- Add New Vans
+- Manage Rentals
+- View Income
+- View Reviews
+
 
 ## 📸 Screenshots
 
@@ -74,6 +103,17 @@ Users can:
 
 ---
 
+## 🏕️ Host Dashboard
+
+Hosts can:
+
+- View dashboard overview
+- Manage their vans
+- Add new vans
+- View income statistics
+- View customer reviews
+
+
 # 🛠️ Tech Stack
 
 ## Frontend
@@ -108,29 +148,37 @@ Database features:
 - Joins
 - Foreign keys
 - User-specific data handling
+- PostgreSQL Session Store
+- bcrypt password hashing
+- Environment variables
 
 ---
 
 # 📂 Project Structure
 
-```
+```text
 Van-Life
 │
-├── client
-│   ├── src
-│   │   ├── components
-│   │   ├── pages
-│   │   ├── api
-│   │   └── App.jsx
-│   │
-│   └── package.json
-│
+├── assets
+├── components
+├── pages
 ├── server
-│   ├── server.js
-│   ├── database
-│   └── package.json
+│   ├── db
+│   │   └── db.js
+│   ├── package.json
+│   └── server.js
 │
+├── api.js
+├── index.jsx
+├── index.css
+├── index.html
+├── package.json
+├── vite.config.js
+├── vercel.json
+├── .env
+├── .gitignore
 └── README.md
+```
 ```
 
 ---
@@ -260,7 +308,7 @@ GET /api/favorites
 ### Remove favorite
 
 ```
-DELETE /api/favorites/:id
+DELETE /api/favorites/:vanId
 ```
 
 ---
