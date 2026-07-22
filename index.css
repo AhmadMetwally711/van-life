@@ -1173,3 +1173,79 @@ i[class*="van-type-"] {
     padding: 40px;
   }
 }
+/* =====================
+   REGISTER PAGE
+===================== */
+
+.register-container {
+  max-width: 420px;
+  margin: 80px auto;
+  padding: 40px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.register-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #161616;
+}
+
+.register-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.register-container input {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.register-container input:focus {
+  outline: none;
+  border-color: #ff8c38;
+}
+
+.register-container button {
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background: #ff8c38;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.register-container button:hover {
+  background: #e17654;
+}
+
+.register-container p {
+  text-align: center;
+  color: #4d4d4d;
+  margin-top: 20px;
+}
+
+.register-container a {
+  color: #ff8c38;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.register-container a:hover {
+  text-decoration: underline;
+}
+
+.register-error {
+  color: #dc2626;
+  background: #fee2e2;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
