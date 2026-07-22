@@ -2,9 +2,12 @@ import React from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { getCurrentUser } from "../api";
+import { useLocation } from "react-router-dom";
 export default function Header() {
   const navigate = useNavigate();
   const [user, setUser] = React.useState(null);
+
+  const location = useLocation();
 
   React.useEffect(() => {
     async function fetchUser() {
@@ -13,14 +16,17 @@ export default function Header() {
 
         if (data.isLoggedIn) {
           setUser(data.user);
+        } else {
+          setUser(null);
         }
       } catch (err) {
         console.error(err);
+        setUser(null);
       }
     }
 
     fetchUser();
-  }, []);
+  }, [location]);
 
   async function logout() {
     await fetch("https://van-life-i7ca.onrender.com/api/auth/logout", {
