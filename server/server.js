@@ -29,6 +29,7 @@ const pgStore = pgSession(session);
 
 app.use(
   session({
+    proxy: true,
     store: new pgStore({
       pool: pool,
       tableName: "sessions",
