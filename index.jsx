@@ -34,8 +34,23 @@ function App() {
           <Route path="vans" element={<Vans />} />
           <Route path="vans/:id" element={<VanDetail />} />
           <Route path="vans/:id/rent" element={<RentVan />} />
-          <Route path="my-rentals" element={<MyRentals />} />
-          <Route path="favorites" element={<MyFavorites />} />
+          <Route
+            path="my-rentals"
+            element={
+              <ProtectedRoute>
+                <MyRentals />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="favorites"
+            element={
+              <ProtectedRoute>
+                <MyFavorites />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="host"
             element={

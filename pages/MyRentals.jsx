@@ -1,15 +1,31 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { API_URL } from "../api";
 
 export default function MyRentals() {
   const [rentals, setRentals] = React.useState([]);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
-    fetch(`${API_URL}/api/rentals`, {
-      credentials: "include",
-    })
-      .then((res) => res.json())
-      .then((data) => setRentals(data));
+    async function loadRentals() {
+      try {
+        const res = await fetch(`${API_URL}/api/rentals`, {
+          credentials: "include",
+        });
+
+        if (res.status === 401) {
+          navigate("/login", { replace: true });
+          return;
+        }
+
+        const data = await res.json();
+        setRentals(data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    loadRentals();
   }, []);
 
   async function cancelRental(id) {
@@ -32,13 +48,17 @@ export default function MyRentals() {
 
     return Math.ceil(diffDays);
   }
+
   return (
     <section className="my-rentals-container">
       <h1>My Rentals</h1>
 
+      {rentals.length === 0 && <h2>No rentals yet</h2>}
+
       <div className="rentals-list">
         {rentals.map((rental) => {
           const days = getDays(rental.start_date, rental.end_date);
+
           const totalPrice = days * rental.price;
 
           return (

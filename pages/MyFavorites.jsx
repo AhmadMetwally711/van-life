@@ -1,17 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { API_URL } from "../api";
 
 export default function MyFavorites() {
   const [favorites, setFavorites] = React.useState([]);
+  const navigate = useNavigate();
 
   async function loadFavorites() {
-    const res = await fetch(`${API_URL}/api/favorites`, {
-      credentials: "include",
-    });
+    try {
+      const res = await fetch(`${API_URL}/api/favorites`, {
+        credentials: "include",
+      });
 
-    const data = await res.json();
-    setFavorites(data);
+      if (res.status === 401) {
+        navigate("/login", { replace: true });
+        return;
+      }
+
+      const data = await res.json();
+      setFavorites(data);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   React.useEffect(() => {
@@ -19,7 +29,7 @@ export default function MyFavorites() {
   }, []);
 
   async function removeFavorite(vanId) {
-    await fetch(`${API_URL}/api/vans/${vanId}/favorites`, {
+    await fetch(`${API_URL}/api/favorites/${vanId}`, {
       method: "DELETE",
       credentials: "include",
     });
