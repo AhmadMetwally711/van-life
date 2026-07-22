@@ -77,7 +77,7 @@ export default function Login() {
           {isSubmitting ? "Signing in..." : "Log in"}
         </button>
       </form>
-      <p>
+      <p className="auth-link">
         Don't have an account?
         <Link to="/register"> Sign up</Link>
       </p>

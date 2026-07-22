@@ -1249,3 +1249,13 @@ i[class*="van-type-"] {
   border-radius: 8px;
   text-align: center;
 }
+.auth-link {
+  text-align: center;
+  margin-top: 20px;
+  color: #4d4d4d;
+}
+
+.auth-link a {
+  color: #ff8c38;
+  font-weight: bold;
+}
